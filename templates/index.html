@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Main</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/common.css') }}"
+    />
+  </head>
+  <body>
+    {% include "fragments/navbar.html" %}
+    <div class="container mt-5">
+      <h1 class="text-center">Welcome to the Multiple Linear Regression Prediction App!</h1>
+      <p class="lead">
+        This web application allows you to perform predictions using a pre-trained multiple linear regression model or train your own model. Follow the steps below to get started:
+      </p>
+
+      <div class="mt-4">
+        <h2>Step 1: Upload Your Data for Prediction</h2>
+        <p>
+          <strong>Select the Model:</strong> From the dropdown menu, select the pre-trained regression model you want to use for predictions. Each model shows its performance metrics (MSE, R², and MAPE) to help you choose the best one.
+        </p>
+        <p>
+          <strong>Upload the CSV File:</strong> Click the "Choose File" button to upload the CSV file containing the input data you want to predict on. Ensure the CSV file is formatted correctly and matches the model's expected input format.
+        </p>
+        <p>
+          <strong>Submit the Form:</strong> After selecting the model and uploading your CSV file, click the "Predict" button to submit the form. The application will process your data and generate predictions.
+        </p>
+      </div>
+
+      <div class="mt-4">
+        <h2>Step 2: View Predictions</h2>
+        <p>
+          After submitting your data, the application will display the prediction results in a tabular format. You will see a table with two columns: "Index" and "Result", showing the index of the input data and the corresponding prediction result.
+        </p>
+      </div>
+
+      <div class="mt-4">
+        <h2>Step 3: Train Your Own Model</h2>
+        <p>
+          <strong>Upload Your Dataset:</strong> Click the "Choose File" button to upload the CSV file containing the training data. Ensure the CSV file is formatted correctly and contains both features and target variable.
+        </p>
+        <p>
+          <strong>Specify Model Name:</strong> Enter a name for the new model in the provided text field.
+        </p>
+        <p>
+          <strong>Submit the Form:</strong> Click the "Train" button to train a new model. The application will process your data, train a new model, and save it along with its performance metrics.
+        </p>
+      </div>
+
+      <div class="mt-4">
+        <h2>Example Workflow</h2>
+        <ul>
+          <li><strong>Navigate to the Prediction Page:</strong> Go to the "Predict" section from the navigation bar.</li>
+          <li><strong>Fill the Form for Prediction:</strong> Select a model from the dropdown menu. Each model is listed with its performance metrics (MSE, R², and MAPE) to help you choose the most suitable one. Upload your CSV file containing the data for which you need predictions. Click the "Predict" button.</li>
+          <li><strong>Review Results:</strong> The predictions will be displayed on the page. Each prediction corresponds to a row from your input CSV file.</li>
+          <li><strong>Fill the Form for Training:</strong> Upload a CSV file containing your training data and enter a name for the new model. Click the "Train" button to train and save the new model along with its performance metrics.</li>
+        </ul>
+      </div>
+
+      <div class="mt-4">
+        <h2>Tips for Using the App</h2>
+        <ul>
+          <li><strong>CSV File Format:</strong> Make sure your CSV file does not contain headers if the model expects raw data without headers. The order of columns in the CSV should match the order expected by the model.</li>
+          <li><strong>Model Selection:</strong> Choose the correct model that corresponds to the type of predictions you want to make. Different models may be trained on different datasets and have different input requirements. Pay attention to the performance metrics (MSE, R², and MAPE) to select the best model for your data.</li>
+          <li><strong>Training New Models:</strong> When training a new model, ensure your dataset includes both the features and the target variable. Properly format your CSV file to match the expected input for training.</li>
+        </ul>
+      </div>
+    </div>
+    
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

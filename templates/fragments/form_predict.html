@@ -1,0 +1,35 @@
+<div class="container mt-5 text-center">
+  <h1>Upload CSV File for Multiple Linear Regression</h1>
+  <form
+    class="row g-3 align-items-center justify-content-center"
+    action="{{ url_for(routes[1] + '.post') }}"
+    method="post"
+    enctype="multipart/form-data"
+  >
+    <div class="col-auto">
+      <label for="select-model" class="form-label">Regression Model</label>
+      <select name="select-model" id="select-model" class="form-select">
+        {% if models %}
+          {% for model in models %}
+            <option value="{{ model.name }}">
+              {{ model.name }} (MSE: {{ model.mse }}, R²: {{ model.r2 }}, MAPE: {{ model.mape }}, VIF: {{ model.vif }})
+            </option>
+          {% endfor %}
+        {% endif %}
+      </select>
+    </div>
+    <div class="col-auto">
+      <label for="file" class="form-label">Input to be Predicted</label>
+      <input
+        type="file"
+        name="select-input"
+        id="file"
+        class="form-control"
+        accept=".csv"
+      />
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary mt-4">Predict</button>
+    </div>
+  </form>
+</div>

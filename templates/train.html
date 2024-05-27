@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Train</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/common.css') }}"
+    />
+  </head>
+  <body>
+    {% include "fragments/navbar.html" %}
+
+    <div class="container mt-5">{% include "fragments/form_train.html" %}</div>
+
+    {% if result_msg %}
+    <div class="container mt-3">
+      <div class="alert alert-info" role="alert">{{result_msg}}</div>
+    </div>
+    {% endif %} {% if train_result %}
+    <div class="container mt-3">
+      <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Training Results</h4>
+        <hr />
+        <p
+          title="This value represents the average squared difference between the actual and predicted values. A lower MSE indicates that the model's predictions are closer to the actual values."
+        >
+          Mean Squared Error: {{train_result[0]}}
+        </p>
+        <p
+          title="This value indicates the proportion of the variance in the dependent variable that is predictable from the independent variables. An R² value close to 1 indicates a very good fit."
+        >
+          R-Squared: {{train_result[1]}}
+        </p>
+        <p
+          title="This value represents the average absolute percentage difference between the actual and predicted values. A lower MAPE indicates better predictive accuracy."
+        >
+          Mean Absolute Percentage Error: {{train_result[2]}}
+        </p>
+        <p
+          title=""
+        >
+          VIF Stability: {{train_result[3]}}
+        </p>
+        <p
+          title=""
+        >
+          High VIF Features: {{train_result[4]}}
+        </p>
+      </div>
+    </div>
+    {% endif %}
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
