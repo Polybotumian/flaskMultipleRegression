@@ -1,4 +1,5 @@
-import routes.index
+# Yiğit Leblebicier 2012721035
+# Fatma Yılmaz 2012721037
 from flask import Flask
 import routes.index
 import routes.predict

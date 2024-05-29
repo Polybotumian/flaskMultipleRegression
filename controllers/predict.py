@@ -1,3 +1,5 @@
+# Yiğit Leblebicier 2012721035
+# Fatma Yılmaz 2012721037
 from flask import redirect, render_template, request, url_for, session
 from os import path
 from glob import glob

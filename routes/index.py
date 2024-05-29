@@ -1,3 +1,5 @@
+# Yiğit Leblebicier 2012721035
+# Fatma Yılmaz 2012721037
 from flask import Blueprint
 from enums import Routes, Rules
 from controllers.main import get
